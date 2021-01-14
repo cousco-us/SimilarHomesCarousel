@@ -6,7 +6,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "db-setup": "node database-mongodb/seed.js"
+    "db-seed": "node database/seed.js"
   },
   "author": "AnimalFace",
   "license": "",
@@ -15,6 +15,7 @@
     "babel-loader": "^6.4.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^7.17.0",
     "webpack": "^2.7.0"
   },
   "dependencies": {
