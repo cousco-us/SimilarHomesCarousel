@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = require('./index.js');
+
 mongoose.Promise = global.Promise;
 
 const listingSchema = new mongoose.Schema({
@@ -13,9 +13,8 @@ const listingSchema = new mongoose.Schema({
   agency: String,
   recentPriceChange: String,
   new: Boolean,
-  forSaleByOwner: Boolean
-}
-);
+  forSaleByOwner: Boolean,
+});
 
 const Listing = mongoose.model('Listing', listingSchema);
 

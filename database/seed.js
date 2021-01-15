@@ -8,9 +8,17 @@ const generateRandomNumber = (max) => Math.floor(Math.random() * Math.floor(max)
 
 const generatePriceChange = () => ['noChanges', 'raised', 'lowered'][generateRandomNumber(3)];
 
+const generateRandomLengthPhotoArray = () => {
+  const photoArray = [];
+  for (let i = 0; i < (generateRandomNumber(10) + 8); i += 1) {
+    photoArray.push('https://loremflickr.com/320/206/house');
+  }
+  return photoArray;
+};
+
 for (let i = 0; i < 100; i += 1) {
   sampleListings.push({
-    images: ['https://image.shutterstock.com/image-photo/old-dilapidated-shack-600w-1061005514.jpg', 'https://image.shutterstock.com/image-photo/one-room-shack-interior-pioneer-260nw-399081187.jpg', 'https://image.shutterstock.com/image-photo/isolates-toilet-roofs-concrete-timber-600w-233727097.jpg'],
+    images: generateRandomLengthPhotoArray(),
     price: faker.commerce.price(),
     size: (generateRandomNumber(2300) + 700),
     bedrooms: (generateRandomNumber(6) + 1),

@@ -21,4 +21,5 @@ module.exports = {
   ],
   rules: {
   },
+  ignorePatterns: ['./client/dist/bundle.js'],
 };
