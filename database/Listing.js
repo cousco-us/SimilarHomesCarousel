@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const db = require('./index.js');
 
 mongoose.Promise = global.Promise;
 
@@ -14,6 +15,7 @@ const listingSchema = new mongoose.Schema({
   recentPriceChange: String,
   new: Boolean,
   forSaleByOwner: Boolean,
+  liked: Boolean,
 });
 
 const Listing = mongoose.model('Listing', listingSchema);

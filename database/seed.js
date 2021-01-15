@@ -29,6 +29,7 @@ for (let i = 0; i < 100; i += 1) {
     recentPriceChange: generatePriceChange(),
     new: faker.random.boolean(),
     forSaleByOwner: faker.random.boolean(),
+    liked: false,
   });
 }
 
