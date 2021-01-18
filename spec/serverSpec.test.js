@@ -1,12 +1,10 @@
 const request = require('supertest');
-const express = require('express');
-const port = 3000;
 
+const server = require('../server/index.js');
 
-describe('/api/listings', function() {
-  it('submits successful get request', (done) => {
-    request(`localhost:${port}`)
-      .get(`/api/listings`)
-      .expect(200, done);
+request(server)
+  .get('/api/listings')
+  .expect(200)
+  .end((err, res) => {
+    if (err) throw err;
   });
-});

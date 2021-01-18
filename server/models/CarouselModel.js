@@ -8,6 +8,7 @@ const getListings = (search, callback) => {
   });
 };
 
+//  needs work
 const likeListing = (id, callback) => {
   Listing.updateOne(
     { _id: id },
@@ -15,6 +16,7 @@ const likeListing = (id, callback) => {
       $set: { liked: true },
     },
   );
+  callback();
 };
 
 module.exports = {
