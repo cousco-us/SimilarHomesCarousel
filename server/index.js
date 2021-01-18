@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/api/listings', CarouselController.getListings);
+app.get('/api/listings/:id', CarouselController.likeListings);
 
 app.listen(port, () => {
   console.log('Carousel is listening on port:', port);

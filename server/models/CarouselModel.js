@@ -8,6 +8,16 @@ const getListings = (search, callback) => {
   });
 };
 
+const likeListing = (id, callback) => {
+  Listing.updateOne(
+    { _id: id },
+    {
+      $set: { liked: true },
+    },
+  );
+};
+
 module.exports = {
   getListings,
+  likeListing,
 };
