@@ -1,10 +1,11 @@
 const express = require('express');
 
 const app = express();
-const CarouselController = require('./controllers/CarouselController.js');
 
 const bodyParser = require('body-parser');
 const path = require('path');
+
+const CarouselController = require('./controllers/CarouselController.js');
 
 const port = 3000;
 
@@ -14,7 +15,9 @@ app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/api/listings', CarouselController.getListings);
+app.patch('/api/listings/:id', CarouselController.likeListing);
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log('Carousel is listening on port:', port);
 });
