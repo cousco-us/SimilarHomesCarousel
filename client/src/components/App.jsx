@@ -1,5 +1,7 @@
 import React from 'react';
 import { ajax } from 'jquery';
+// eslint-disable-next-line import/extensions
+import Carousel from './Carousel.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,9 +25,9 @@ class App extends React.Component {
       dataType: 'json',
       success: (response) => {
         this.setState({
-          listings: response
+          listings: response,
         });
-        this.renderView();
+        // this.renderView();
       },
       // eslint-disable-next-line no-console
       error: console.log,
@@ -38,7 +40,7 @@ class App extends React.Component {
       url: `/api/listings/${id}`,
       method: 'PATCH',
       success: () => {
-        // implement
+        // implement something to show like
       },
       // eslint-disable-next-line no-console
       error: console.log,
@@ -46,10 +48,12 @@ class App extends React.Component {
   }
 
   render() {
-    const { headline } = this.state;
+    const { headline, listings } = this.state;
     return (
-      <div>{headline}</div>
-      <Carousel listings={this.state.listings}/>
+      <div>
+        <div>{headline}</div>
+        <Carousel like={this.likeListing} listings={listings} />
+      </div>
     );
   }
 }

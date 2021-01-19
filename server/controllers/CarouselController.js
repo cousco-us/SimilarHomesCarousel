@@ -11,18 +11,18 @@ const getListings = (request, response) => {
   });
 };
 
-// const likeListing = (request, response) => {
-//   const { id } = request.params;
-//   CarouselModel.likeListing(id, (err, data) => {
-//     if (err) {
-//       response.status(400).send(err);
-//     } else {
-//       response.status(200).send(data);
-//     }
-//   });
-// };
+const likeListing = (request, response) => {
+  const { id } = request.params;
+  CarouselModel.likeListing(id, (err, data) => {
+    if (err) {
+      response.status(400).send(err);
+    } else {
+      response.status(200).send(data);
+    }
+  });
+};
 
 module.exports = {
   getListings,
-  // likeListing,
+  likeListing,
 };

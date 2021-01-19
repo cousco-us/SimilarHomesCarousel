@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/api/listings', CarouselController.getListings);
-// app.get('/api/listings/:id', CarouselController.likeListings);
+app.patch('/api/listings/:id', CarouselController.likeListing);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
