@@ -5,18 +5,17 @@ class ListingsEnd extends React.Component {
     super(props);
     this.state = {
       //  initial state
-      city: this.props.city,
+
     };
     this.handleClick = this.handleClick.bind(this);
   }
-  // const { city } = listing;
 
   handleClick() {
     // handle take a look button click
   }
 
   render() {
-    const { city } = this.state;
+    const { city } = this.props
 
     return (
       <li>

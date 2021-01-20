@@ -9,7 +9,7 @@ class App extends React.Component {
     this.state = {
       headline: 'Similar Homes You May Like',
       listings: [],
-      city: 'San Diego',
+      city: null,
     };
     this.getListings = this.getListings.bind(this);
     this.likeListing = this.likeListing.bind(this);
@@ -29,7 +29,7 @@ class App extends React.Component {
           listings: response,
           city: response[0].city,
         });
-        // this.renderView();
+        this.render();
       },
       // eslint-disable-next-line no-console
       error: console.log,

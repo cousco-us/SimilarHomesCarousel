@@ -4,7 +4,6 @@ const InfoPanel = ({ listing }) => {
   const {
     price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency
   } = listing;
-  console.log(price);
   return (
     <div>
       <div>{price}</div>
