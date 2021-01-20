@@ -9,6 +9,7 @@ class App extends React.Component {
     this.state = {
       headline: 'Similar Homes You May Like',
       listings: [],
+      city: 'San Diego',
     };
     this.getListings = this.getListings.bind(this);
     this.likeListing = this.likeListing.bind(this);
@@ -26,6 +27,7 @@ class App extends React.Component {
       success: (response) => {
         this.setState({
           listings: response,
+          city: response[0].city,
         });
         // this.renderView();
       },
@@ -48,11 +50,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { headline, listings } = this.state;
+    const { headline, listings, city } = this.state;
     return (
       <div>
         <div>{headline}</div>
-        <Carousel like={this.likeListing} listings={listings} />
+        <Carousel city={city} like={this.likeListing} listings={listings} />
       </div>
     );
   }

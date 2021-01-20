@@ -4,19 +4,31 @@ class ImagePanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //  initial state
+      listing: this.props.listing,
+      liked: this.props.listing.liked,
+      currentImage: this.props.listing.images[0],
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleLikeClick = this.handleLikeClick.bind(this);
+    this.handleMouseHover = this.handleMouseHover.bind(this);
   }
 
-  handleClick() {
+  handleLikeClick() {
+    //  handle click to liked heart
+
+  }
+
+  handleMouseHover() {
+    //  handle image cycling on hover
 
   }
 
   render() {
+    const { listing, liked, currentImage} = this.state;
     return (
-      <div></div>
-    )
+      <div>
+        <img src={currentImage}></img>
+      </div>
+    );
   }
 }
 
