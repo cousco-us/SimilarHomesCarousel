@@ -8,6 +8,8 @@ const generateRandomNumber = (max) => Math.floor(Math.random() * Math.floor(max)
 
 const generatePriceChange = () => ['noChanges', 'raised', 'lowered'][generateRandomNumber(3)];
 
+const numberWithCommas = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
 const generateRandomLengthPhotoArray = () => {
   const photoArray = [];
   for (let i = 0; i < (generateRandomNumber(10) + 8); i += 1) {
@@ -19,8 +21,8 @@ const generateRandomLengthPhotoArray = () => {
 for (let i = 0; i < 100; i += 1) {
   sampleListings.push({
     images: generateRandomLengthPhotoArray(),
-    price: faker.commerce.price(),
-    size: (generateRandomNumber(2300) + 700),
+    price: numberWithCommas(generateRandomNumber(4000000) + 500000),
+    size: numberWithCommas(generateRandomNumber(2300) + 700),
     bedrooms: (generateRandomNumber(6) + 1),
     bathrooms: (generateRandomNumber(6) + 1),
     addressLineOne: faker.address.streetAddress(),

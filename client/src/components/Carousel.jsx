@@ -11,11 +11,12 @@ const Carousel = ({ listings, like, city }) => {
         <div className="carouselOverflowContainer">
           <div className="carouselGridContainer">
             <ul>
-              {listings.map((listing, index) => <Listing key={index} like={like} listing={listing} />)}
-              <ListingsEnd city={city} />
+              {listings.map((listing, index) => <Listing className="listingCard" key={index} like={like} listing={listing} />)}
+              <ListingsEnd className="listingCard" city={city} />
             </ul>
           </div>
         </div>
+        {/* {conditionally render <div className="directionControl"><button className="carouselButtons"><div className="buttonIcon">fontAwesomeElement</div></button></div>} */}
       </div>
     </div>
   );

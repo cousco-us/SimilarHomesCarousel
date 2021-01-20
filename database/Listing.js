@@ -5,8 +5,8 @@ mongoose.Promise = global.Promise;
 
 const listingSchema = new mongoose.Schema({
   images: Array,
-  price: Number,
-  size: Number,
+  price: String,
+  size: String,
   bedrooms: Number,
   bathrooms: Number,
   addressLineOne: String,
