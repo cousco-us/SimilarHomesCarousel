@@ -133,6 +133,14 @@ height: 17px
   display: block;
 }
 
+.upArrow {
+  color: red;
+}
+
+.downArrow {
+  color: green;
+}
+
 /* Image Panel */
 
 .imagePanelBox {

@@ -6,9 +6,9 @@ const determinePriceChangeArrow = (priceChange) => {
   if (priceChange === 'noChanges') {
     return '';
   } if (priceChange === 'raised') {
-    return <FontAwesomeIcon icon={faLongArrowAltUp} />;
+    return <FontAwesomeIcon className="upArrow" icon={faLongArrowAltUp} />;
   } if (priceChange === 'lowered') {
-    return <FontAwesomeIcon icon={faLongArrowAltDown} />;
+    return <FontAwesomeIcon className="downArrow" icon={faLongArrowAltDown} />;
   }
 };
 
