@@ -1,0 +1,92 @@
+body {
+  margin: 0px;
+    padding: 0px;
+    font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+    color: rgb(59, 65, 68);
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.1px;
+}
+
+.infoPanelOuterBox {
+  width: 224px;
+  height: 104px;
+}
+
+.infoPanelInnerBox {
+  width: 224px;
+  height: 96px;
+  padding-top: 8px;
+}
+
+.priceContainer {
+  width: 224px;
+  height: 24px;
+}
+
+.priceContent {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.houseSpecsContainer {
+  width: 224px;
+  height: 24px;
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.houseSpec {
+  padding: 0px 4px 0px 0px;
+  font-size: 16px;
+  letter-spacing: -0.1px;
+}
+
+.streetAddressContainer {
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+  color: inherit
+}
+
+.cityAddressContainer {
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.agencyContainer {
+margin: 4px, 0px, 4px, 0px;
+border-top: 1px;
+padding-top: 8px;
+width: 224px;
+height: 17px
+}
+
+.agencyContent {
+  color: rgb(134, 144, 153);
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 13px;
+  padding-bottom: 4px;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}

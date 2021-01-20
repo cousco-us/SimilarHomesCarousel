@@ -1,21 +1,32 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBed, faSink, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
 
 const InfoPanel = ({ listing }) => {
   const {
     price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency
   } = listing;
   return (
-    <div>
-      <div>{price}</div>
-      <div>{recentPriceChange}</div>
-      <div>{bedrooms}</div>
-      <div>{bathrooms}</div>
-      <div>{size}</div>
-      <div>{addressLineOne}</div>
-      <div>{city}</div>
-      <div>{state}</div>
-      <div>{agency}</div>
+    <div className="infoPanel">
+      <div className="infoPanelOuterBox">
+        <div className="infoPanelInnerBox">
+          <div className="priceContainer">
+            <div className="priceContent">${price}</div>
+          </div>
+          <div className="houseSpecsContainer">
+            <div className="houseSpec"><FontAwesomeIcon icon={faBed} />{bedrooms}bd</div>
+            <div className="houseSpec"><FontAwesomeIcon icon={faSink} />{bathrooms}ba</div>
+            <div className="houseSpec"><FontAwesomeIcon icon={faRulerCombined} />{size} sqft</div>
+          </div>
+          <div className="streetAddressContainer">{addressLineOne}</div>
+          <div className="cityAddressContainer">{addressLineOne}</div>
+        </div>
+      </div>
+      <div className="agencyContainer">
+        <div className="agencyContent">{agency}</div>
+      </div>
     </div>
+
   );
 };
 
@@ -32,3 +43,5 @@ const InfoPanel = ({ listing }) => {
 // };
 
 export default InfoPanel;
+
+
