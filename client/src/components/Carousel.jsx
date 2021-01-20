@@ -6,13 +6,19 @@ import ListingsEnd from './ListingsEnd.jsx';
 const Carousel = ({ listings, like, city }) => {
 
   return (
-    <div>
-      <ul>
-        {listings.map((listing, index) => <Listing key={index} like={like} listing={listing} />)}
-        <ListingsEnd city={city} />
-      </ul>
+    <div className="carousel">
+      <div className="carouselContainer">
+        <div className="carouselOverflowContainer">
+          <div className="carouselGridContainer">
+            <ul>
+              {listings.map((listing, index) => <Listing key={index} like={like} listing={listing} />)}
+              <ListingsEnd city={city} />
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 };
 
 export default Carousel;

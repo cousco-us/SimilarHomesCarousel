@@ -1,6 +1,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBed, faSink, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
+import { faBed, faSink, faRulerCombined, faLongArrowAltUp, faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
+
+const determinePriceChangeArrow = (priceChange) => {
+  if (priceChange === 'noChanges') {
+    return '';
+  } if (priceChange === 'raised') {
+    return <FontAwesomeIcon icon={faLongArrowAltUp} />;
+  } if (priceChange === 'lowered') {
+    return <FontAwesomeIcon icon={faLongArrowAltDown} />;
+  }
+};
+
 
 const InfoPanel = ({ listing }) => {
   const {
@@ -11,15 +22,15 @@ const InfoPanel = ({ listing }) => {
       <div className="infoPanelOuterBox">
         <div className="infoPanelInnerBox">
           <div className="priceContainer">
-            <div className="priceContent">${price}</div>
+            <div className="priceContent">${price} {determinePriceChangeArrow(recentPriceChange)}</div>
           </div>
           <div className="houseSpecsContainer">
-            <div className="houseSpec"><FontAwesomeIcon icon={faBed} />{bedrooms}bd</div>
-            <div className="houseSpec"><FontAwesomeIcon icon={faSink} />{bathrooms}ba</div>
-            <div className="houseSpec"><FontAwesomeIcon icon={faRulerCombined} />{size} sqft</div>
+            <div className="houseSpec"><FontAwesomeIcon icon={faBed} /> {bedrooms}bd</div>
+            <div className="houseSpec"><FontAwesomeIcon icon={faSink} /> {bathrooms}ba</div>
+            <div className="houseSpec"><FontAwesomeIcon icon={faRulerCombined} /> {size} sqft</div>
           </div>
           <div className="streetAddressContainer">{addressLineOne}</div>
-          <div className="cityAddressContainer">{addressLineOne}</div>
+          <div className="cityAddressContainer">{city}, {state}</div>
         </div>
       </div>
       <div className="agencyContainer">

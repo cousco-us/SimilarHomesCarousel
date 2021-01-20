@@ -7,7 +7,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      headline: 'Similar Homes You May Like',
       listings: [],
       city: null,
     };
@@ -53,7 +52,7 @@ class App extends React.Component {
     const { headline, listings, city } = this.state;
     return (
       <div>
-        <div>{headline}</div>
+        <div className="headline">Similar Homes You May Like</div>
         <Carousel city={city} like={this.likeListing} listings={listings} />
       </div>
     );

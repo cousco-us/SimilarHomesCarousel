@@ -23,10 +23,28 @@ class ImagePanel extends React.Component {
   }
 
   render() {
-    const { listing, liked, currentImage} = this.state;
+    const { listing } = this.props;
+    const { liked, images } = listing;
+    const currentImage = images[0];
     return (
-      <div>
-        <img src={currentImage}></img>
+      <div className="imagePanel">
+        <div className="imagePanelBox">
+          <div className="imagePanelContainer">
+            <div>
+              <picture>
+                <img src={currentImage}></img>
+              </picture>
+            </div>
+          </div>
+          <div className="likeHomeContainer">
+            <div className="likeHomeButton">
+              {/* <svg>
+
+              </svg> */}
+            </div>
+
+          </div>
+        </div>
       </div>
     );
   }

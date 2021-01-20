@@ -21,11 +21,15 @@ class ListingsEnd extends React.Component {
 
     return (
       <li>
-        <div>
-          <FontAwesomeIcon icon={faSign} />
-          <h2>See more homes for sale in</h2>
-          <h1>{city}</h1>
-          <button>Take a look</button>
+        <div className="listingsEndContainers">
+          <div className="iconContainer"><FontAwesomeIcon icon={faSign} /></div>
+          <div className="textContainer">
+            <div className="seeMoreText">See more homes for sale in</div>
+            <div className="cityName">{city}</div>
+          </div>
+          <div className="buttonContainer">
+            <button className="takeALookButton">Take a look</button>
+          </div>
         </div>
       </li>
     );
