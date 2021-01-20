@@ -1,7 +1,7 @@
 import React from 'react';
 
-const InfoPanel = (props) => (
-  const { price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency}
+const InfoPanel = ({ price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency}) => (
+
     <div>
       <div>{price}{recentPriceChange}</div>
       <div>{bedrooms}{bathrooms}{size}</div>
