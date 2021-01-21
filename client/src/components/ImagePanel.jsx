@@ -16,6 +16,7 @@ class ImagePanel extends React.Component {
     this.handleImageClick = this.handleImageClick.bind(this);
     this.likeOrUnlike = this.likeOrUnlike.bind(this);
     this.handleMouseHover = this.handleMouseHover.bind(this);
+    this.newOrNot = this.newOrNot.bind(this);
   }
 
   handleImageClick() {
@@ -71,12 +72,12 @@ class ImagePanel extends React.Component {
     const { isNewListing } = this.props;
     if (isNewListing) {
       return (
-      <span className="newSpan">
-        <span>NEW</span>
-      </span>
-      )
+        <span className="newSpan">
+          <span>NEW</span>
+        </span>
+      );
     }
-    return <span className="newSpan"></span>
+    return <span className="newSpan" />;
   }
 
   render() {
@@ -97,6 +98,9 @@ class ImagePanel extends React.Component {
             <div className="likeHomeButton">
               {<FontAwesomeIcon onClick={() => this.likeOrUnlike()} className={this.fillOrUnfill()} icon={faHeart} />}
             </div>
+          </div>
+          <div className="propertyTagsContainer">
+            {this.newOrNot()}
           </div>
         </div>
       </div>
