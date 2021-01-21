@@ -67,6 +67,18 @@ class ImagePanel extends React.Component {
     return 'shadedHeart';
   }
 
+  newOrNot() {
+    const { isNewListing } = this.props;
+    if (isNewListing) {
+      return (
+      <span className="newSpan">
+        <span>NEW</span>
+      </span>
+      )
+    }
+    return <span className="newSpan"></span>
+  }
+
   render() {
 
     const { hovered, images, currentImageIndex, liked } = this.state;

@@ -30,7 +30,7 @@ for (let i = 0; i < 100; i += 1) {
     state: faker.address.stateAbbr(),
     agency: faker.company.companyName(),
     recentPriceChange: generatePriceChange(),
-    new: faker.random.boolean(),
+    isNewListing: faker.random.boolean(),
     forSaleByOwner: faker.random.boolean(),
     liked: false,
   });
