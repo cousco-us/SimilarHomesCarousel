@@ -51,6 +51,7 @@ li {
   outline: none;
   box-sizing: border-box;
   display: block;
+  padding-bottom: 16px;
 }
 
 /* Carousel */
@@ -64,7 +65,7 @@ li {
 }
 
 .carouselWindow {
-  height: 327px;
+  height: 311px;
   width: 960px;
   overflow: auto;
   overflow: hidden;
@@ -78,7 +79,7 @@ li {
 }
 
 .carouselList {
-  margin-bottom: -18px;
+  margin-top: 0px;
   padding-bottom: 18px;
   padding-left: 0px;
   outline: none;
@@ -133,9 +134,9 @@ li {
 /* Listing Cards */
 
 .listingCard {
+  border-top: 0px;
   border-style: solid;
   border-color: transparent;
-  border-width: 16px 8px 0px;
   flex-shrink: 0;
   flex-basis: auto;
   outline: none;
