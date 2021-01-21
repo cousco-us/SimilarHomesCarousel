@@ -2,11 +2,11 @@ import React from 'react';
 import ImagePanel from './ImagePanel.jsx';
 import InfoPanel from './InfoPanel.jsx';
 
-const Listing = (props) => {
+const Listing = ({listing, like}) =>  (
   <li>
-    <ImagePanel like={props.like} listing={props.listing} />
-    <InfoPanel listing={props.listing} />
-  </li>;
-};
+    <ImagePanel like={like} listing={listing} />
+    <InfoPanel listing={listing} />
+  </li>
+);
 
 export default Listing;

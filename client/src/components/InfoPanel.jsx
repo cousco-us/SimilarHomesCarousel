@@ -1,14 +1,58 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBed, faSink, faRulerCombined, faLongArrowAltUp, faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
 
-const InfoPanel = (props) => (
-  const { price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency}
-    <div>
-      <div>{price}{recentPriceChange}</div>
-      <div>{bedrooms}{bathrooms}{size}</div>
-      <div>{addressLineOne}</div>
-      <div>{city}{state}</div>
-      <div>{agency}</div>
+const determinePriceChangeArrow = (priceChange) => {
+  if (priceChange === 'noChanges') {
+    return '';
+  } if (priceChange === 'raised') {
+    return <FontAwesomeIcon icon={faLongArrowAltUp} />;
+  } if (priceChange === 'lowered') {
+    return <FontAwesomeIcon icon={faLongArrowAltDown} />;
+  }
+};
+
+
+const InfoPanel = ({ listing }) => {
+  const {
+    price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency
+  } = listing;
+  return (
+    <div className="infoPanel">
+      <div className="infoPanelOuterBox">
+        <div className="infoPanelInnerBox">
+          <div className="priceContainer">
+            <div className="priceContent">${price} {determinePriceChangeArrow(recentPriceChange)}</div>
+          </div>
+          <div className="houseSpecsContainer">
+            <div className="houseSpec"><FontAwesomeIcon icon={faBed} /> {bedrooms}bd</div>
+            <div className="houseSpec"><FontAwesomeIcon icon={faSink} /> {bathrooms}ba</div>
+            <div className="houseSpec"><FontAwesomeIcon icon={faRulerCombined} /> {size} sqft</div>
+          </div>
+          <div className="streetAddressContainer">{addressLineOne}</div>
+          <div className="cityAddressContainer">{city}, {state}</div>
+        </div>
+      </div>
+      <div className="agencyContainer">
+        <div className="agencyContent">{agency}</div>
+      </div>
     </div>
+
   );
+};
+
+// InfoPanel.propTypes = {
+//   price: PropTypes.int.isRequired,
+//   recentPriceChange: PropTypes.bool.isRequired,
+//   bathrooms: PropTypes.int.isRequired,
+//   bedrooms: PropTypes.int.isRequired,
+//   size: PropTypes.int.isRequired,
+//   addressLineOne: PropTypes.string.isRequired,
+//   city: PropTypes.string.isRequired,
+//   state: PropTypes.string.isRequired,
+//   agency: PropTypes.string.isRequired,
+// };
 
 export default InfoPanel;
+
+

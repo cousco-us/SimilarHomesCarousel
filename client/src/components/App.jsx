@@ -7,8 +7,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      headline: 'Similar Homes You May Like',
       listings: [],
+      city: null,
     };
     this.getListings = this.getListings.bind(this);
     this.likeListing = this.likeListing.bind(this);
@@ -26,8 +26,9 @@ class App extends React.Component {
       success: (response) => {
         this.setState({
           listings: response,
+          city: response[0].city,
         });
-        // this.renderView();
+        this.render();
       },
       // eslint-disable-next-line no-console
       error: console.log,
@@ -48,11 +49,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { headline, listings } = this.state;
+    const { headline, listings, city } = this.state;
     return (
       <div>
-        <div>{headline}</div>
-        <Carousel like={this.likeListing} listings={listings} />
+        <div className="headline">Similar Homes You May Like</div>
+        <Carousel city={city} like={this.likeListing} listings={listings} />
       </div>
     );
   }
