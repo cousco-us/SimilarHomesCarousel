@@ -7,14 +7,29 @@ class ImagePanel extends React.Component {
     super(props);
     this.state = {
       hovered: false,
+      images: props.listing.images,
+      lastIndex: (props.listing.images.length - 1),
+      currentImageIndex: 0,
     };
     this.handleLikeClick = this.handleLikeClick.bind(this);
+    this.handleImageClick = this.handleImageClick.bind(this);
     // this.handleMouseHover = this.handleMouseHover.bind(this);
   }
 
   handleLikeClick() {
     //  handle click to liked heart
 
+  }
+
+  handleImageClick() {
+    const { currentImageIndex, lastIndex } = this.state;
+    if (currentImageIndex === lastIndex) {
+      this.setState({ currentImageIndex: 0 });
+    } else {
+      const nextIndex = currentImageIndex + 1;
+      this.setState({ currentImageIndex: nextIndex });
+    }
+    this.render();
   }
 
   // handleMouseHover() {
@@ -34,13 +49,14 @@ class ImagePanel extends React.Component {
 
   render() {
     const { listing } = this.props;
-    const { liked, images } = listing;
-    const currentImage = images[0];
-    const { hovered } = this.state;
+    const { liked } = listing;
+    const { hovered, images, currentImageIndex } = this.state;
+    const currentImage = images[currentImageIndex];
+    console.log(currentImageIndex);
     return (
       <div className="imagePanel">
         <div className="imagePanelBox">
-          <div className="imagePanelContainer">
+          <div className="imagePanelContainer" onClick={() => this.handleImageClick()}>
             <div>
               <picture>
                 <img src={currentImage}></img>
