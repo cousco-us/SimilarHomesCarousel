@@ -38,7 +38,6 @@ class ImagePanel extends React.Component {
     this.setState({
       hovered: !hovered,
     });
-    console.log(hovered);
   }
 
   zoomOnHover(isHovered) {
