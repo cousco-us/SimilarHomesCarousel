@@ -175,6 +175,9 @@ height: 17px
   box-sizing: border-box;
   display: block;
 }
+.zoomedImage {
+  transform: scale(1.5);
+}
 
 .likeHomeContainer {
   position: absolute;

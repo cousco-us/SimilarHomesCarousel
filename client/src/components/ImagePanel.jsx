@@ -6,9 +6,7 @@ class ImagePanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listing: this.props.listing,
-      liked: this.props.listing.liked,
-      currentImage: this.props.listing.images[0],
+      hovered: false,
     };
     this.handleLikeClick = this.handleLikeClick.bind(this);
     this.handleMouseHover = this.handleMouseHover.bind(this);
@@ -20,21 +18,32 @@ class ImagePanel extends React.Component {
   }
 
   handleMouseHover() {
-    //  handle image cycling on hover
+    const { hovered } = this.state;
+    this.setState({
+      hovered: !hovered,
+    });
+  }
 
+  zoomOnHover(isHovered) {
+    if (isHovered) {
+      return <img className="zoomedImage" src={currentImage}></img>
+    } else {
+      return <img src={currentImage}></img>
+    }
   }
 
   render() {
     const { listing } = this.props;
     const { liked, images } = listing;
     const currentImage = images[0];
+    const { hovered } = this.state;
     return (
       <div className="imagePanel">
         <div className="imagePanelBox">
-          <div className="imagePanelContainer">
+          <div className="imagePanelContainer" onMouseEnter={this.handleMouseHover()} onMouseLeave={this.handleMouseHover()}>
             <div>
               <picture>
-                <img src={currentImage}></img>
+                {this.zoomOnHover(hovered)}
               </picture>
             </div>
           </div>
