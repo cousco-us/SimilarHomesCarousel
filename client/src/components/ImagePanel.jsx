@@ -10,6 +10,7 @@ class ImagePanel extends React.Component {
       images: props.listing.images,
       lastIndex: (props.listing.images.length - 1),
       currentImageIndex: 0,
+      liked: props.listing.liked,
     };
     this.handleLikeClick = this.handleLikeClick.bind(this);
     this.handleImageClick = this.handleImageClick.bind(this);
@@ -32,35 +33,33 @@ class ImagePanel extends React.Component {
     this.render();
   }
 
-  // handleMouseHover() {
-  //   const { hovered } = this.state;
-  //   this.setState({
-  //     hovered: !hovered,
-  //   });
-  // }
+  handleMouseHover() {
+    const { hovered } = this.state;
+    this.setState({
+      hovered: !hovered,
+    });
+    console.log(hovered);
+  }
 
-  // zoomOnHover(isHovered) {
-  //   if (isHovered) {
-  //     return <img className="zoomedImage" src={currentImage}></img>
-  //   } else {
-  //     return <img src={currentImage}></img>
-  //   }
-  // }
+  zoomOnHover(isHovered) {
+    const { images, currentImageIndex} = this.state;
+    if (isHovered) {
+      return <img className="zoomedImage" src={images[currentImageIndex]}></img>
+    } else {
+      return <img src={images[currentImageIndex]}></img>
+    }
+  }
 
   render() {
-    const { listing } = this.props;
-    const { liked } = listing;
-    const { hovered, images, currentImageIndex } = this.state;
+    const { hovered, images, currentImageIndex, liked } = this.state;
     const currentImage = images[currentImageIndex];
-    console.log(currentImageIndex);
     return (
       <div className="imagePanel">
         <div className="imagePanelBox">
-          <div className="imagePanelContainer" onClick={() => this.handleImageClick()}>
+          <div className="imagePanelContainer" onClick={() => this.handleImageClick()} onMouseEnter={() => this.handleMouseHover()} onMouseLeave={() => this.handleMouseHover()}>
             <div>
               <picture>
-                <img src={currentImage}></img>
-                {/* {this.zoomOnHover(hovered)} */}
+                {this.zoomOnHover(hovered)}
               </picture>
             </div>
           </div>
