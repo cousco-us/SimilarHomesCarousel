@@ -77,16 +77,6 @@ li {
   };
 }
 
-.carouselGridContainer {
-  margin-bottom: -18px;
-  padding-bottom: 18px;
-  margin-left: -8px;
-  margin-right: -8px;
-  margin-top: -16px;
-  outline: none;
-  display: flex;
-}
-
 .carouselList {
   margin-bottom: -18px;
   padding-bottom: 18px;
