@@ -177,6 +177,7 @@ height: 17px
 }
 
 .zoomedImage {
+  transition: transform .5s ease;
   transform: scale(1.5);
 }
 
