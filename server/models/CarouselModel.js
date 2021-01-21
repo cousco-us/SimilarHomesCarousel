@@ -22,7 +22,20 @@ const likeListing = (id, callback) => {
     });
 };
 
+const unlikeListing = (id, callback) => {
+  Listing.findOneAndUpdate({ _id: id }, { $set: { liked: false } }, { returnOriginal: false },
+    (err, doc) => {
+      if (err) {
+        console.log('Error unliking listing!');
+      } else {
+        console.log(doc);
+        callback(err, doc);
+      }
+    });
+};
+
 module.exports = {
   getListings,
   likeListing,
+  unlikeListing,
 };
