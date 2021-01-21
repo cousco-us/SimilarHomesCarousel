@@ -3,25 +3,42 @@ import Listing from './Listing.jsx';
 import ListingsEnd from './ListingsEnd.jsx';
 
 // eslint-disable-next-line arrow-body-style
-const Carousel = ({ listings, like, city }) => {
+class Carousel extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      view: 0,
+    };
+  }
 
-  const fifteenListings = listings.slice(0, 15);
+  render() {
+    const { listings, like, city } = this.props;
+    const { view } = this.state;
+    const fifteenListings = listings.slice(0, 15);
+    const findView = (v) => 912 * v;
+    const gridStyle = {
+      transform: `translateX(-${findView(view)}px)`,
+    };
 
-  return (
-    <div className="carousel">
-      <div className="carouselContainer">
-        <div className="carouselOverflowContainer">
-          <div className="carouselGridContainer">
-            <ul>
-              {fifteenListings.map((listing, index) => <Listing className="listingCard" key={index} like={like} listing={listing} />)}
-              <ListingsEnd className="listingCard" city={city} />
-            </ul>
+    return (
+      <div className="carousel">
+        <div className="carouselContainer">
+          <div className="carouselWindow">
+            <div style={gridStyle} className="carouselGridContainer">
+              <ul>
+                {
+                // eslint-disable-next-line max-len
+                  fifteenListings.map((listing) => <Listing key={listing._id} like={like} listing={listing} />)
+                }
+                <ListingsEnd city={city} />
+              </ul>
+            </div>
           </div>
+          {/* {conditionally render <div className="directionControl"><button className="carouselButtons"><div className="buttonIcon">fontAwesomeElement</div></button></div>} */}
         </div>
-        {/* {conditionally render <div className="directionControl"><button className="carouselButtons"><div className="buttonIcon">fontAwesomeElement</div></button></div>} */}
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Carousel;

@@ -3,7 +3,7 @@ import ImagePanel from './ImagePanel.jsx';
 import InfoPanel from './InfoPanel.jsx';
 
 const Listing = ({listing, like}) =>  (
-  <li>
+  <li className="listingCard">
     <ImagePanel like={like} listing={listing} />
     <InfoPanel listing={listing} />
   </li>

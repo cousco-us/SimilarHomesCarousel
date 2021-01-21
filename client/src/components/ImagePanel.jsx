@@ -50,7 +50,7 @@ class ImagePanel extends React.Component {
           </div>
           <div className="likeHomeContainer">
             <div className="likeHomeButton">
-              {<FontAwesomeIcon onClick={this.handleLikeClick()} className="likedHeart" icon={faHeart}/>}
+              {<FontAwesomeIcon onClick={this.handleLikeClick()} className="likedHeart" icon={faHeart} />}
             </div>
 
           </div>
