@@ -95,9 +95,7 @@ class ImagePanel extends React.Component {
             </div>
           </div>
           <div className="likeHomeContainer">
-            <div className="likeHomeButton">
-              {<FontAwesomeIcon onClick={() => this.likeOrUnlike()} className={this.fillOrUnfill()} icon={faHeart} />}
-            </div>
+            {<FontAwesomeIcon onClick={() => this.likeOrUnlike()} className={this.fillOrUnfill()} icon={faHeart} />}
           </div>
           <div className="propertyTagsContainer">
             {this.newOrNot()}
