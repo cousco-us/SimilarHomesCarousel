@@ -38,10 +38,23 @@ class App extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   likeListing(id) {
     ajax({
-      url: `/api/listings/${id}`,
+      url: `/api/listings/like/${id}`,
       method: 'PATCH',
       success: () => {
-        // implement something to show like
+        //  ?
+      },
+      // eslint-disable-next-line no-console
+      error: console.log,
+    });
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  unlikeListing(id) {
+    ajax({
+      url: `/api/listings/unlike/${id}`,
+      method: 'PATCH',
+      success: () => {
+        //  ?
       },
       // eslint-disable-next-line no-console
       error: console.log,
@@ -53,7 +66,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="headline">Similar Homes You May Like</div>
-        <Carousel city={city} like={this.likeListing} listings={listings} />
+        <Carousel city={city} like={this.likeListing} unlike={this.unlikeListing} listings={listings} />
       </div>
     );
   }

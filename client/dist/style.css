@@ -211,12 +211,26 @@ height: 17px
   box-sizing: border-box;
 }
 
-.likedHeart {
+.shadedHeart {
   width: 30;
   height: 30;
-  font-size: 24px;
+  font-size: 23px;
   overflow: hidden;
-  color: rgb(232, 233, 234);
+  color: rgba(0, 0, 0, 0.233);
+  stroke-width: 55px;
+  stroke: rgb(232, 233, 234);
+  text-align: center;
+
+}
+
+.filledHeart {
+  width: 30;
+  height: 30;
+  font-size: 23px;
+  overflow: hidden;
+  color: rgb(255, 94, 63);
+  stroke-width: 55px;
+  stroke: rgb(255, 94, 63);
   text-align: center;
 }
 

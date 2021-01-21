@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 class ImagePanel extends React.Component {
   constructor(props) {
@@ -11,15 +11,11 @@ class ImagePanel extends React.Component {
       lastIndex: (props.listing.images.length - 1),
       currentImageIndex: 0,
       liked: props.listing.liked,
+      listingId: props.listing._id,
     };
-    this.handleLikeClick = this.handleLikeClick.bind(this);
     this.handleImageClick = this.handleImageClick.bind(this);
-    // this.handleMouseHover = this.handleMouseHover.bind(this);
-  }
-
-  handleLikeClick() {
-    //  handle click to liked heart
-
+    this.likeOrUnlike = this.likeOrUnlike.bind(this);
+    this.handleMouseHover = this.handleMouseHover.bind(this);
   }
 
   handleImageClick() {
@@ -30,6 +26,7 @@ class ImagePanel extends React.Component {
       const nextIndex = currentImageIndex + 1;
       this.setState({ currentImageIndex: nextIndex });
     }
+    console.log('image index:', currentImageIndex);
     this.render();
   }
 
@@ -41,7 +38,7 @@ class ImagePanel extends React.Component {
   }
 
   zoomOnHover(isHovered) {
-    const { images, currentImageIndex} = this.state;
+    const { images, currentImageIndex } = this.state;
     if (isHovered) {
       return <img className="zoomedImage" src={images[currentImageIndex]}></img>
     } else {
@@ -49,7 +46,29 @@ class ImagePanel extends React.Component {
     }
   }
 
+  likeOrUnlike() {
+    const { liked, listingId } = this.state;
+    const { like, unlike } = this.props;
+    if (liked) {
+      this.setState({ liked: !liked });
+      this.render();
+      return unlike(listingId);
+    }
+    this.setState({ liked: !liked });
+    this.render();
+    return like(listingId);
+  }
+
+  fillOrUnfill() {
+    const { liked } = this.state;
+    if (liked) {
+      return 'filledHeart';
+    }
+    return 'shadedHeart';
+  }
+
   render() {
+
     const { hovered, images, currentImageIndex, liked } = this.state;
     const currentImage = images[currentImageIndex];
     return (
@@ -64,9 +83,8 @@ class ImagePanel extends React.Component {
           </div>
           <div className="likeHomeContainer">
             <div className="likeHomeButton">
-              {<FontAwesomeIcon onClick={this.handleLikeClick()} className="likedHeart" icon={faHeart} />}
+              {<FontAwesomeIcon onClick={() => this.likeOrUnlike()} className={this.fillOrUnfill()} icon={faHeart} />}
             </div>
-
           </div>
         </div>
       </div>

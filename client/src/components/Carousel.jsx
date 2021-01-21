@@ -12,7 +12,7 @@ class Carousel extends React.Component {
   }
 
   render() {
-    const { listings, like, city } = this.props;
+    const { listings, like, unlike, city } = this.props;
     const { view } = this.state;
     const fifteenListings = listings.slice(0, 15);
     const findView = (v) => 912 * v;
@@ -28,7 +28,7 @@ class Carousel extends React.Component {
               <ul>
                 {
                 // eslint-disable-next-line max-len
-                  fifteenListings.map((listing) => <Listing key={listing._id} like={like} listing={listing} />)
+                  fifteenListings.map((listing) => <Listing key={listing._id} like={like} unlike={unlike} listing={listing} />)
                 }
                 <ListingsEnd city={city} />
               </ul>
