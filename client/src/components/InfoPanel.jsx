@@ -25,9 +25,9 @@ const InfoPanel = ({ listing }) => {
             <div className="priceContent">${price} {determinePriceChangeArrow(recentPriceChange)}</div>
           </div>
           <div className="houseSpecsContainer">
-            <div className="houseSpec"><FontAwesomeIcon icon={faBed} /> {bedrooms}bd</div>
-            <div className="houseSpec"><FontAwesomeIcon icon={faSink} /> {bathrooms}ba</div>
-            <div className="houseSpec"><FontAwesomeIcon icon={faRulerCombined} /> {size} sqft</div>
+            <div className="houseSpec"><FontAwesomeIcon className="infoPanelIcon" icon={faBed} /> {bedrooms}bd</div>
+            <div className="houseSpec"><FontAwesomeIcon className="infoPanelIcon" icon={faSink} /> {bathrooms}ba</div>
+            <div className="houseSpec"><FontAwesomeIcon className="infoPanelIcon" icon={faRulerCombined} /> {size} sqft</div>
           </div>
           <div className="streetAddressContainer">{addressLineOne}</div>
           <div className="cityAddressContainer">{city}, {state}</div>

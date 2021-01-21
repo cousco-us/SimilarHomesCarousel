@@ -34,6 +34,10 @@ button {
   border-image: initial;
 }
 
+div {
+  display: block;
+}
+
 li {
   list-style-type: none;
 }
@@ -134,11 +138,16 @@ height: 17px
 }
 
 .upArrow {
-  color: red;
+  color: rgb(255, 94, 63);
 }
 
 .downArrow {
-  color: green;
+  color:  rgb(0, 178, 91);
+}
+
+.infoPanelIcon {
+  color: rgb(134, 144, 153);
+  font-size: 85%;
 }
 
 /* Image Panel */
@@ -165,6 +174,44 @@ height: 17px
   outline: none;
   box-sizing: border-box;
   display: block;
+}
+
+.likeHomeContainer {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+  outline: none;
+  box-sizing: border-box;
+  height: 44px;
+  width: 44px;
+}
+
+.likedHomeButton {
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  overflow: visible;
+  flex: 0 0 auto;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  line-height: 1;
+  color: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.likedHeart {
+  width: 30;
+  height: 30;
+  font-size: 24px;
+  overflow: hidden;
+  color: rgb(232, 233, 234);
+  text-align: center;
 }
 
 /* Listings End */

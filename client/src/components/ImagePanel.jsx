@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 class ImagePanel extends React.Component {
   constructor(props) {
@@ -38,9 +40,7 @@ class ImagePanel extends React.Component {
           </div>
           <div className="likeHomeContainer">
             <div className="likeHomeButton">
-              {/* <svg>
-
-              </svg> */}
+              {<FontAwesomeIcon onClick={this.handleLikeClick()} className="likedHeart" icon={faHeart} />}
             </div>
 
           </div>
