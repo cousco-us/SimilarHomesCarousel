@@ -9,7 +9,7 @@ class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 1,
+      view: 0,
     };
     this.nextButtonClick = this.nextButtonClick.bind(this);
     this.previousButtonClick = this.previousButtonClick.bind(this);
@@ -34,10 +34,25 @@ class Carousel extends React.Component {
     const { view } = this.state;
     if (view !== 0) {
       return (
-        <div className="directionControl">
+        <div className="previousButtonContainer">
           <button onClick={() => this.previousButtonClick()} className="carouselButtons">
             <div className="buttonIcon">
               <FontAwesomeIcon icon={faChevronLeft} />
+            </div>
+          </button>
+        </div>
+      )
+    }
+  }
+
+  nextButtonOrNot() {
+    const { view } = this.state;
+    if (view < 4) {
+      return (
+        <div className="nextButtonContainer">
+          <button onClick={() => this.nextButtonClick()} className="carouselButtons">
+            <div className="buttonIcon">
+              <FontAwesomeIcon icon={faChevronRight} />
             </div>
           </button>
         </div>
@@ -65,8 +80,9 @@ class Carousel extends React.Component {
                 }
                 <ListingsEnd city={city} />
               </ul>
+              {this.previousButtonOrNot()}
+              {this.nextButtonOrNot()}
           </div>
-          {this.previousButtonOrNot()}
         </div>
       </div>
     );
