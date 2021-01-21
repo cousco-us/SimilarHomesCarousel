@@ -9,7 +9,7 @@ class ImagePanel extends React.Component {
       hovered: false,
     };
     this.handleLikeClick = this.handleLikeClick.bind(this);
-    this.handleMouseHover = this.handleMouseHover.bind(this);
+    // this.handleMouseHover = this.handleMouseHover.bind(this);
   }
 
   handleLikeClick() {
@@ -17,20 +17,20 @@ class ImagePanel extends React.Component {
 
   }
 
-  handleMouseHover() {
-    const { hovered } = this.state;
-    this.setState({
-      hovered: !hovered,
-    });
-  }
+  // handleMouseHover() {
+  //   const { hovered } = this.state;
+  //   this.setState({
+  //     hovered: !hovered,
+  //   });
+  // }
 
-  zoomOnHover(isHovered) {
-    if (isHovered) {
-      return <img className="zoomedImage" src={currentImage}></img>
-    } else {
-      return <img src={currentImage}></img>
-    }
-  }
+  // zoomOnHover(isHovered) {
+  //   if (isHovered) {
+  //     return <img className="zoomedImage" src={currentImage}></img>
+  //   } else {
+  //     return <img src={currentImage}></img>
+  //   }
+  // }
 
   render() {
     const { listing } = this.props;
@@ -40,16 +40,17 @@ class ImagePanel extends React.Component {
     return (
       <div className="imagePanel">
         <div className="imagePanelBox">
-          <div className="imagePanelContainer" onMouseEnter={this.handleMouseHover()} onMouseLeave={this.handleMouseHover()}>
+          <div className="imagePanelContainer">
             <div>
               <picture>
-                {this.zoomOnHover(hovered)}
+                <img src={currentImage}></img>
+                {/* {this.zoomOnHover(hovered)} */}
               </picture>
             </div>
           </div>
           <div className="likeHomeContainer">
             <div className="likeHomeButton">
-              {<FontAwesomeIcon onClick={this.handleLikeClick()} className="likedHeart" icon={faHeart} />}
+              {<FontAwesomeIcon onClick={this.handleLikeClick()} className="likedHeart" icon={faHeart}/>}
             </div>
 
           </div>

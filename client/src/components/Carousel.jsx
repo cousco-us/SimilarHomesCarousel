@@ -5,13 +5,15 @@ import ListingsEnd from './ListingsEnd.jsx';
 // eslint-disable-next-line arrow-body-style
 const Carousel = ({ listings, like, city }) => {
 
+  const fifteenListings = listings.slice(0, 15);
+
   return (
     <div className="carousel">
       <div className="carouselContainer">
         <div className="carouselOverflowContainer">
           <div className="carouselGridContainer">
             <ul>
-              {listings.map((listing, index) => <Listing className="listingCard" key={index} like={like} listing={listing} />)}
+              {fifteenListings.map((listing, index) => <Listing className="listingCard" key={index} like={like} listing={listing} />)}
               <ListingsEnd className="listingCard" city={city} />
             </ul>
           </div>

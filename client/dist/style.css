@@ -175,9 +175,9 @@ height: 17px
   box-sizing: border-box;
   display: block;
 }
-.zoomedImage {
+/* .zoomedImage {
   transform: scale(1.5);
-}
+} */
 
 .likeHomeContainer {
   position: absolute;
@@ -186,6 +186,7 @@ height: 17px
   z-index: 1;
   outline: none;
   box-sizing: border-box;
+  justify-content: center;
   height: 44px;
   width: 44px;
 }
@@ -305,13 +306,19 @@ height: 17px
   outline: none;
   box-sizing: border-box;
   display: block;
+  width: 960px;
 }
 
 .carouselOverflowContainer {
+  height: 327px;
+  width: 960px;
   overflow: hidden;
   outline: none;
   box-sizing: border-box;
-  display: block;
+  box-sizing: border-box;
+  -webkit-scrollbar {
+    display: none;
+  };
 }
 
 .carouselGridContainer {
@@ -322,9 +329,10 @@ height: 17px
   margin-right: -8px;
   margin-top: -16px;
   flex-wrap: nowrap;
-  overflow-x: auto;
   outline: none;
-  box-sizing: border-box;
+  position: absolute;
+  width: fit-content;
+
 }
 
 .directionControl {
