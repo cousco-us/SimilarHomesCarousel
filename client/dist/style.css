@@ -53,6 +53,263 @@ li {
   display: block;
 }
 
+/* Carousel */
+
+.carouselContainer {
+  position: relative;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+  width: 960px;
+}
+
+.carouselWindow {
+  height: 327px;
+  width: 960px;
+  overflow: auto;
+  overflow: hidden;
+  outline: none;
+  box-sizing: border-box;
+  position: absolute;
+  -webkit-overflow-scrolling: touch;
+  -webkit-scrollbar {
+    display: none;
+  };
+}
+
+.carouselGridContainer {
+  margin-bottom: -18px;
+  padding-bottom: 18px;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-top: -16px;
+  outline: none;
+  display: flex;
+}
+
+.carouselList {
+  margin-bottom: -18px;
+  padding-bottom: 18px;
+  padding-left: 0px;
+  outline: none;
+  display: flex;
+}
+
+.directionControl {
+  left: 0px;
+  position: absolute;
+  top: calc(50% - 24px);
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.carouselButtons {
+  transition: box-shadow 0.1s ease 0s, color 0.1s ease 0s, border-color 0.2s ease 0s, background-color 0.2s ease 0s;
+  border-radius: 24px;
+  padding: 1px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgb(232, 233, 234);
+  background-color: rgb(255, 255, 255);
+  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.buttonIcon {
+  display: inline-block;
+  font-size: 0px;
+  width: 24px !important;
+  height: 24px !important;
+  box-sizing: border-box;
+}
+
+/* Listing Cards */
+
+.listingCard {
+  border-style: solid;
+  border-color: transparent;
+  border-width: 16px 8px 0px;
+  flex-shrink: 0;
+  flex-basis: auto;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Listings End */
+
+.listingsEndContainers {
+  border: 1px solid rgb(232, 233, 234);
+  border-radius: 8px;
+  padding: 8px;
+  height: 100%;
+  background-color: rgb(232, 233, 234);
+  overflow: hidden;
+  display: block;
+  flex-direction: column;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.iconContainer {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  line-height: 0;
+  outline: none;
+  box-sizing: border-box;
+  color:rgb(134, 144, 153);
+  font-size: 22px;
+}
+
+.textContainer {
+  padding: 8px 0px 0px;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.seeMoreText {
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.cityName {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.buttonContainer {
+  padding: 8px 0px 0px;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.takeALookButton {
+  margin: 0px 0px 4px;
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  transition: top 0.1s ease 0s, box-shadow 0.1s ease 0s, border-color 0.1s ease 0s, background-color 0.1s ease 0s, color 0.1s ease 0s;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 8px 16px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 120, 130);
+  border-color: transparent;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Image Panel */
+
+.imagePanelBox {
+  position: relative;
+  z-index: 0;
+  height: 160px;
+  width: 224px;
+  display: block;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.imagePanelContainer {
+  background-color: rgb(232, 233, 234);
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  outline: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+.zoomedImage {
+  transition: transform .5s ease;
+  transform: scale(1.1);
+}
+
+.likeHomeContainer {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+  outline: none;
+  box-sizing: border-box;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+}
+
+.likedHomeButton {
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  overflow: visible;
+  flex: 0 0 auto;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  line-height: 1;
+  color: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.shadedHeart {
+  width: 30;
+  height: 30;
+  font-size: 23px;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.233);
+  stroke-width: 55px;
+  stroke: rgb(232, 233, 234);
+  text-align: center;
+
+}
+
+.filledHeart {
+  width: 30;
+  height: 30;
+  font-size: 23px;
+  overflow: hidden;
+  color: rgb(255, 94, 63);
+  stroke-width: 55px;
+  stroke: rgb(255, 94, 63);
+  text-align: center;
+}
+
 /* Info Panel */
 
 .infoPanelOuterBox {
@@ -150,251 +407,4 @@ height: 17px
   font-size: 85%;
 }
 
-/* Image Panel */
 
-.imagePanelBox {
-  position: relative;
-  z-index: 0;
-  height: 160px;
-  width: 224px;
-  display: block;
-  outline: none;
-  box-sizing: border-box;
-}
-
-.imagePanelContainer {
-  background-color: rgb(232, 233, 234);
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  min-height: 160px;
-  outline: none;
-  box-sizing: border-box;
-  display: block;
-}
-
-.zoomedImage {
-  transition: transform .5s ease;
-  transform: scale(1.1);
-}
-
-.likeHomeContainer {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  z-index: 1;
-  outline: none;
-  box-sizing: border-box;
-  justify-content: center;
-  height: 44px;
-  width: 44px;
-}
-
-.likedHomeButton {
-  min-width: 44px;
-  min-height: 44px;
-  width: 44px;
-  height: 44px;
-  overflow: visible;
-  flex: 0 0 auto;
-  display: inline-flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  line-height: 1;
-  color: inherit;
-  outline: none;
-  box-sizing: border-box;
-}
-
-.shadedHeart {
-  width: 30;
-  height: 30;
-  font-size: 23px;
-  overflow: hidden;
-  color: rgba(0, 0, 0, 0.233);
-  stroke-width: 55px;
-  stroke: rgb(232, 233, 234);
-  text-align: center;
-
-}
-
-.filledHeart {
-  width: 30;
-  height: 30;
-  font-size: 23px;
-  overflow: hidden;
-  color: rgb(255, 94, 63);
-  stroke-width: 55px;
-  stroke: rgb(255, 94, 63);
-  text-align: center;
-}
-
-/* Listings End */
-
-.listingsEndContainers {
-  border: 1px solid rgb(232, 233, 234);
-  border-radius: 8px;
-  padding: 8px;
-  height: 100%;
-  background-color: rgb(232, 233, 234);
-  overflow: hidden;
-  display: block;
-  flex-direction: column;
-  outline: none;
-  box-sizing: border-box;
-}
-
-.iconContainer {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  line-height: 0;
-  outline: none;
-  box-sizing: border-box;
-  color:rgb(134, 144, 153);
-  font-size: 22px;
-}
-
-.textContainer {
-  padding: 8px 0px 0px;
-  outline: none;
-  box-sizing: border-box;
-  display: block;
-}
-
-.seeMoreText {
-  font-size: 16px;
-  line-height: 1.5;
-  outline: none;
-  box-sizing: border-box;
-  display: block;
-}
-
-.cityName {
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  outline: none;
-  box-sizing: border-box;
-  display: block;
-}
-
-.buttonContainer {
-  padding: 8px 0px 0px;
-  outline: none;
-  box-sizing: border-box;
-  display: block;
-}
-
-.takeALookButton {
-  margin: 0px 0px 4px;
-  border-radius: 8px;
-  border-width: 1px;
-  border-style: solid;
-  cursor: pointer;
-  display: inline-block;
-  text-align: center;
-  font-weight: bold;
-  transition: top 0.1s ease 0s, box-shadow 0.1s ease 0s, border-color 0.1s ease 0s, background-color 0.1s ease 0s, color 0.1s ease 0s;
-  white-space: nowrap;
-  font-size: 16px;
-  line-height: 1.5;
-  padding: 8px 16px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 120, 130);
-  border-color: transparent;
-  outline: none;
-  box-sizing: border-box;
-}
-
-/* Carousel */
-
-.carouselContainer {
-  position: relative;
-  outline: none;
-  box-sizing: border-box;
-  display: block;
-  width: 960px;
-}
-
-.carouselWindow {
-  height: 327px;
-  width: 960px;
-  overflow: auto;
-  overflow: hidden;
-  outline: none;
-  box-sizing: border-box;
-  position: absolute;
-  -webkit-overflow-scrolling: touch;
-  -webkit-scrollbar {
-    display: none;
-  };
-}
-
-.carouselGridContainer {
-  margin-bottom: -18px;
-  padding-bottom: 18px;
-  margin-left: -8px;
-  margin-right: -8px;
-  margin-top: -16px;
-  outline: none;
-  display: flex;
-}
-
-.directionControl {
-  left: 0px;
-  position: absolute;
-  top: calc(50% - 24px);
-  outline: none;
-  box-sizing: border-box;
-  display: block;
-}
-
-.carouselButtons {
-  transition: box-shadow 0.1s ease 0s, color 0.1s ease 0s, border-color 0.2s ease 0s, background-color 0.2s ease 0s;
-  border-radius: 24px;
-  padding: 1px;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgb(232, 233, 234);
-  background-color: rgb(255, 255, 255);
-  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  outline: none;
-  box-sizing: border-box;
-}
-
-.buttonIcon {
-  display: inline-block;
-  font-size: 0px;
-  width: 24px !important;
-  height: 24px !important;
-  box-sizing: border-box;
-}
-
-/* Listing Cards */
-
-.listingCard {
-  border-style: solid;
-  border-color: transparent;
-  border-width: 16px 8px 0px;
-  flex-shrink: 0;
-  flex-basis: auto;
-  outline: none;
-  box-sizing: border-box;
-}

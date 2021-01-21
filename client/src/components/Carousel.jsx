@@ -25,7 +25,7 @@ class Carousel extends React.Component {
         <div className="carouselContainer">
           <div className="carouselWindow">
             <div style={gridStyle} className="carouselGridContainer">
-              <ul>
+              <ul className="carouselList">
                 {
                 // eslint-disable-next-line max-len
                   fifteenListings.map((listing) => <Listing key={listing._id} like={like} unlike={unlike} listing={listing} />)
