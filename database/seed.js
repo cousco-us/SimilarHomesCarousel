@@ -24,7 +24,7 @@ const generateRandomLengthPhotoArray = () => {
 for (let i = 0; i < 100; i += 1) {
   sampleListings.push({
     images: generateRandomLengthPhotoArray(),
-    price: numberWithCommas(generateRandomNumber(4000000) + 500000),
+    price: numberWithCommas((generateRandomNumber(4000) + 800) * 1000),
     size: numberWithCommas(generateRandomNumber(2300) + 700),
     bedrooms: (generateRandomNumber(6) + 1),
     bathrooms: (generateRandomNumber(6) + 1),
