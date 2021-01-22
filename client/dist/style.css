@@ -392,6 +392,10 @@ img {
 .priceContainer {
   width: 224px;
   height: 24px;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
 }
 
 .priceContent {
@@ -460,17 +464,36 @@ height: 17px
   display: block;
 }
 
-.upArrow {
-  color: rgb(255, 94, 63);
-}
-
-.downArrow {
-  color:  rgb(0, 178, 91);
-}
 
 .infoPanelIcon {
   color: rgb(134, 144, 153);
   font-size: 85%;
 }
 
+.priceIconContainer {
+  display: inline-block;
+  font-size: 0px;
+  width: 20px !important;
+  height: 20px !important;
+  box-sizing: border-box;
+  padding-left: 7px;
+}
 
+.priceIcon {
+  height: 20px;
+  width: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  outline: none;
+
+}
+
+.raisedPath {
+  transform-origin: 0px 0px;
+  fill: rgb(255, 94, 63);
+}
+
+.loweredPath {
+  transform-origin: 0px 0px;
+  fill: rgb(0, 178, 91);
+}
