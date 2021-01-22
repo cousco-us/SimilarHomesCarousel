@@ -20,7 +20,7 @@ class ListingsEnd extends React.Component {
     const { city } = this.props
 
     return (
-      <li>
+      <li className="listingCard">
         <div className="listingsEndContainers">
           <div className="iconContainer"><FontAwesomeIcon icon={faSign} /></div>
           <div className="textContainer">

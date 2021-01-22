@@ -6,16 +6,25 @@ const determinePriceChangeArrow = (priceChange) => {
   if (priceChange === 'noChanges') {
     return '';
   } if (priceChange === 'raised') {
-    return <FontAwesomeIcon icon={faLongArrowAltUp} />;
+    return <FontAwesomeIcon className="upArrow" icon={faLongArrowAltUp} />;
   } if (priceChange === 'lowered') {
-    return <FontAwesomeIcon icon={faLongArrowAltDown} />;
+    return <FontAwesomeIcon className="downArrow" icon={faLongArrowAltDown} />;
   }
 };
 
+const agencyOrNot = (forSaleByOwner, agency) => {
+  if (!forSaleByOwner) {
+    return (
+      <div className="agencyContainer">
+        <div className="agencyContent">{agency}</div>
+      </div>
+    );
+  }
+};
 
 const InfoPanel = ({ listing }) => {
   const {
-    price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency
+    price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency, forSaleByOwner
   } = listing;
   return (
     <div className="infoPanel">
@@ -25,34 +34,18 @@ const InfoPanel = ({ listing }) => {
             <div className="priceContent">${price} {determinePriceChangeArrow(recentPriceChange)}</div>
           </div>
           <div className="houseSpecsContainer">
-            <div className="houseSpec"><FontAwesomeIcon icon={faBed} /> {bedrooms}bd</div>
-            <div className="houseSpec"><FontAwesomeIcon icon={faSink} /> {bathrooms}ba</div>
-            <div className="houseSpec"><FontAwesomeIcon icon={faRulerCombined} /> {size} sqft</div>
+            <div className="houseSpec"><FontAwesomeIcon className="infoPanelIcon" icon={faBed} /> {bedrooms}bd</div>
+            <div className="houseSpec"><FontAwesomeIcon className="infoPanelIcon" icon={faSink} /> {bathrooms}ba</div>
+            <div className="houseSpec"><FontAwesomeIcon className="infoPanelIcon" icon={faRulerCombined} /> {size} sqft</div>
           </div>
           <div className="streetAddressContainer">{addressLineOne}</div>
           <div className="cityAddressContainer">{city}, {state}</div>
         </div>
       </div>
-      <div className="agencyContainer">
-        <div className="agencyContent">{agency}</div>
-      </div>
+      {agencyOrNot(forSaleByOwner, agency)}
     </div>
 
   );
 };
 
-// InfoPanel.propTypes = {
-//   price: PropTypes.int.isRequired,
-//   recentPriceChange: PropTypes.bool.isRequired,
-//   bathrooms: PropTypes.int.isRequired,
-//   bedrooms: PropTypes.int.isRequired,
-//   size: PropTypes.int.isRequired,
-//   addressLineOne: PropTypes.string.isRequired,
-//   city: PropTypes.string.isRequired,
-//   state: PropTypes.string.isRequired,
-//   agency: PropTypes.string.isRequired,
-// };
-
 export default InfoPanel;
-
-

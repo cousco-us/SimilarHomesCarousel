@@ -14,7 +14,7 @@ const listingSchema = new mongoose.Schema({
   state: String,
   agency: String,
   recentPriceChange: String,
-  new: Boolean,
+  isNewListing: Boolean,
   forSaleByOwner: Boolean,
   liked: Boolean,
 });

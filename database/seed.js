@@ -1,4 +1,5 @@
 const faker = require('faker');
+const truliaImageUrls = require('./truliaImageScraper/truliaImageUrls');
 const db = require('./index.js');
 const Listing = require('./Listing.js');
 
@@ -10,10 +11,12 @@ const generatePriceChange = () => ['noChanges', 'raised', 'lowered'][generateRan
 
 const numberWithCommas = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
+const chooseRandomImage = () => truliaImageUrls[generateRandomNumber(truliaImageUrls.length)];
+
 const generateRandomLengthPhotoArray = () => {
   const photoArray = [];
   for (let i = 0; i < (generateRandomNumber(10) + 8); i += 1) {
-    photoArray.push('https://loremflickr.com/320/206/house');
+    photoArray.push(chooseRandomImage());
   }
   return photoArray;
 };
@@ -30,7 +33,7 @@ for (let i = 0; i < 100; i += 1) {
     state: faker.address.stateAbbr(),
     agency: faker.company.companyName(),
     recentPriceChange: generatePriceChange(),
-    new: faker.random.boolean(),
+    isNewListing: faker.random.boolean(),
     forSaleByOwner: faker.random.boolean(),
     liked: false,
   });
