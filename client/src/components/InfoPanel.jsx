@@ -12,10 +12,19 @@ const determinePriceChangeArrow = (priceChange) => {
   }
 };
 
+const agencyOrNot = (forSaleByOwner, agency) => {
+  if (!forSaleByOwner) {
+    return (
+      <div className="agencyContainer">
+        <div className="agencyContent">{agency}</div>
+      </div>
+    );
+  }
+};
 
 const InfoPanel = ({ listing }) => {
   const {
-    price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency
+    price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency, forSaleByOwner
   } = listing;
   return (
     <div className="infoPanel">
@@ -33,26 +42,10 @@ const InfoPanel = ({ listing }) => {
           <div className="cityAddressContainer">{city}, {state}</div>
         </div>
       </div>
-      <div className="agencyContainer">
-        <div className="agencyContent">{agency}</div>
-      </div>
+      {agencyOrNot(forSaleByOwner, agency)}
     </div>
 
   );
 };
 
-// InfoPanel.propTypes = {
-//   price: PropTypes.int.isRequired,
-//   recentPriceChange: PropTypes.bool.isRequired,
-//   bathrooms: PropTypes.int.isRequired,
-//   bedrooms: PropTypes.int.isRequired,
-//   size: PropTypes.int.isRequired,
-//   addressLineOne: PropTypes.string.isRequired,
-//   city: PropTypes.string.isRequired,
-//   state: PropTypes.string.isRequired,
-//   agency: PropTypes.string.isRequired,
-// };
-
 export default InfoPanel;
-
-

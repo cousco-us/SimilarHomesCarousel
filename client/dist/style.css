@@ -42,6 +42,11 @@ li {
   list-style-type: none;
 }
 
+img {
+  width: 224px;
+  height: 160px;
+}
+
 /* Header */
 
 .headline {
@@ -84,6 +89,7 @@ li {
   padding-left: 0px;
   outline: none;
   display: flex;
+  transition: transform .5s ease;
 }
 
 .previousButtonContainer {
