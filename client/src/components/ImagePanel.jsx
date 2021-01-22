@@ -12,11 +12,14 @@ class ImagePanel extends React.Component {
       currentImageIndex: 0,
       liked: props.listing.liked,
       listingId: props.listing._id,
+      isNewListing: props.listing.isNewListing,
+      forSaleByOwner: props.listing.forSaleByOwner,
     };
     this.handleImageClick = this.handleImageClick.bind(this);
     this.likeOrUnlike = this.likeOrUnlike.bind(this);
     this.handleMouseHover = this.handleMouseHover.bind(this);
     this.newOrNot = this.newOrNot.bind(this);
+    // this.forSaleByOwnerOrNot = this.forSaleByOwnerOrNot.bind(this);
   }
 
   handleImageClick() {
@@ -69,21 +72,30 @@ class ImagePanel extends React.Component {
   }
 
   newOrNot() {
-    const { isNewListing } = this.props;
+    const { isNewListing } = this.state;
     if (isNewListing) {
       return (
-        <span className="newSpan">
-          <span>NEW</span>
+        <span className="outerNewSpan">
+          <span className="newSpan">NEW</span>
         </span>
       );
     }
-    return <span className="newSpan" />;
   }
+
+  // forSaleByOwnerOrNot() {
+  //   const { forSaleByOwner } = this.state;
+  //   if (forSaleByOwner) {
+  //     return (
+  //       <span className="outerForSaleByOwnerSpan">
+  //         <span className="forSaleByOwnerSpan">NEW</span>
+  //       </span>
+  //     );
+  //   }
+  // }
 
   render() {
 
-    const { hovered, images, currentImageIndex, liked } = this.state;
-    const currentImage = images[currentImageIndex];
+    const { hovered } = this.state;
     return (
       <div className="imagePanel">
         <div className="imagePanelBox">

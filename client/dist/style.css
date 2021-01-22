@@ -277,7 +277,6 @@ img {
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  justify-content: center;
 }
 
 .likedHomeButton {
@@ -316,6 +315,41 @@ img {
   stroke-width: 55px;
   stroke: rgb(255, 94, 63);
   text-align: center;
+}
+
+.propertyTagsContainer {
+  display: flex;
+  width: 80%;
+  height: 19px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.outerNewSpan {
+  margin-right: 4px;
+  text-transform: uppercase;
+  background-color: rgb(255, 255, 255);
+  color: rgb(5, 34, 134);
+  font-size: 12px;
+  line-height: 1.33;
+  padding: 2px 4px;
+  border-radius: 4px;
+  display: inline-flex;
+  font-weight: bold;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.newSpan {
+  text-transform: uppercase;
+  color: rgb(5, 34, 134);
+  font-size: 12px;
+  line-height: 1.33;
+  cursor: default;
+  font-weight: bold;
 }
 
 /* Info Panel */
