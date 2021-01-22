@@ -72,8 +72,8 @@ class ImagePanel extends React.Component {
   }
 
   newOrNot() {
-    const { isNewListing } = this.state;
-    if (isNewListing) {
+    const { isNewListing, forSaleByOwner } = this.state;
+    if (isNewListing && !forSaleByOwner) {
       return (
         <span className="outerNewSpan">
           <span className="newSpan">NEW</span>
@@ -82,16 +82,16 @@ class ImagePanel extends React.Component {
     }
   }
 
-  // forSaleByOwnerOrNot() {
-  //   const { forSaleByOwner } = this.state;
-  //   if (forSaleByOwner) {
-  //     return (
-  //       <span className="outerForSaleByOwnerSpan">
-  //         <span className="forSaleByOwnerSpan">NEW</span>
-  //       </span>
-  //     );
-  //   }
-  // }
+  forSaleByOwnerOrNot() {
+    const { forSaleByOwner } = this.state;
+    if (forSaleByOwner) {
+      return (
+        <span className="outerForSaleByOwnerSpan">
+          <span className="forSaleByOwnerSpan">FOR SALE BY OWNER</span>
+        </span>
+      );
+    }
+  }
 
   render() {
 
@@ -111,6 +111,7 @@ class ImagePanel extends React.Component {
           </div>
           <div className="propertyTagsContainer">
             {this.newOrNot()}
+            {this.forSaleByOwnerOrNot()}
           </div>
         </div>
       </div>

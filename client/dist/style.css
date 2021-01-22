@@ -352,6 +352,30 @@ img {
   font-weight: bold;
 }
 
+.outerForSaleByOwnerSpan {
+  margin-right: 4px;
+  text-transform: uppercase;
+  background-color: rgb(255, 255, 255);
+  color: rgb(59, 65, 68);
+  font-size: 12px;
+  line-height: 1.33;
+  padding: 2px 4px;
+  border-radius: 4px;
+  display: inline-flex;
+  font-weight: bold;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.ForSaleByOwnerSpan {
+  text-transform: uppercase;
+  color: rgb(59, 65, 68);
+  font-size: 12px;
+  line-height: 1.33;
+  cursor: default;
+  font-weight: bold;
+}
+
 /* Info Panel */
 
 .infoPanelOuterBox {
