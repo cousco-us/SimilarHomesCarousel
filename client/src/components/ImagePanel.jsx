@@ -30,7 +30,6 @@ class ImagePanel extends React.Component {
       const nextIndex = currentImageIndex + 1;
       this.setState({ currentImageIndex: nextIndex });
     }
-    console.log('image index:', currentImageIndex);
     this.render();
   }
 

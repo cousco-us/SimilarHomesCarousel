@@ -13,6 +13,7 @@ class Carousel extends React.Component {
     };
     this.nextButtonClick = this.nextButtonClick.bind(this);
     this.previousButtonClick = this.previousButtonClick.bind(this);
+    this.keepListingsInView = this.keepListingsInView.bind(this);
   }
 
   nextButtonClick() {
@@ -25,14 +26,9 @@ class Carousel extends React.Component {
     this.setState({ view: (view - 1) });
   }
 
-  nextButtonOrNot() {
-    const { view } = this.state;
-
-  }
-
   previousButtonOrNot() {
     const { view } = this.state;
-    if (view !== 0) {
+    if (view > 0) {
       return (
         <div className="previousButtonContainer">
           <button onClick={() => this.previousButtonClick()} className="carouselButtons">
@@ -41,7 +37,7 @@ class Carousel extends React.Component {
             </div>
           </button>
         </div>
-      )
+      );
     }
   }
 
@@ -56,7 +52,22 @@ class Carousel extends React.Component {
             </div>
           </button>
         </div>
-      )
+      );
+    }
+  }
+
+  keepListingsInView() {
+    const { view } = this.state;
+    const numberOfListings = 15;
+    if (view > (Math.floor((numberOfListings + 1) / 4.2))) {
+      console.log("hereOver", (((numberOfListings + 1) - 4) * 240) / 912);
+      return (((numberOfListings + 1) - 4) * 240) / 912;
+    } else if (view < 0) {
+      console.log("hereunder0", 0);
+      return 0;
+    } else if (view < Math.floor((numberOfListings + 1) / 4)) {
+      console.log("hereMiddle", view, "lastview", ((((numberOfListings + 1) - 4) * 240) / 912), "listings.length-1", (numberOfListings + 1));
+      return view;
     }
   }
 
@@ -66,8 +77,9 @@ class Carousel extends React.Component {
     const fifteenListings = listings.slice(0, 15);
     const findView = (v) => 912 * v;
     const gridStyle = {
-      transform: `translateX(-${findView(view)}px)`,
+      transform: `translateX(-${findView(this.keepListingsInView())}px)`,
     };
+
 
     return (
       <div className="carousel">
