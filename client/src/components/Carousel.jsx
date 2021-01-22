@@ -13,7 +13,7 @@ class Carousel extends React.Component {
     };
     this.nextButtonClick = this.nextButtonClick.bind(this);
     this.previousButtonClick = this.previousButtonClick.bind(this);
-    this.keepListingsInView = this.keepListingsInView.bind(this);
+    this.stopCarouselFromGoingOver = this.stopCarouselFromGoingOver.bind(this);
   }
 
   nextButtonClick() {
@@ -56,7 +56,7 @@ class Carousel extends React.Component {
     }
   }
 
-  keepListingsInView() {
+  stopCarouselFromGoingOver() {
     const { view } = this.state;
     const numberOfListings = 15;
     if (view > (Math.floor((numberOfListings + 1) / 4.2))) {
@@ -77,7 +77,7 @@ class Carousel extends React.Component {
     const fifteenListings = listings.slice(0, 15);
     const findView = (v) => 912 * v;
     const gridStyle = {
-      transform: `translateX(-${findView(this.keepListingsInView())}px)`,
+      transform: `translateX(-${findView(this.stopCarouselFromGoingOver())}px)`,
     };
 
 
