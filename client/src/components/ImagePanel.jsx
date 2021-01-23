@@ -6,10 +6,10 @@ class ImagePanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hovered: false,
       images: props.listing.images,
-      lastIndex: (props.listing.images.length - 1),
       currentImageIndex: 0,
+      lastIndex: (props.listing.images.length - 1),
+      hovered: false,
       liked: props.listing.liked,
       listingId: props.listing._id,
       isNewListing: props.listing.isNewListing,
@@ -18,8 +18,6 @@ class ImagePanel extends React.Component {
     this.handleImageClick = this.handleImageClick.bind(this);
     this.likeOrUnlike = this.likeOrUnlike.bind(this);
     this.handleMouseHover = this.handleMouseHover.bind(this);
-    this.newOrNot = this.newOrNot.bind(this);
-    // this.forSaleByOwnerOrNot = this.forSaleByOwnerOrNot.bind(this);
   }
 
   handleImageClick() {
@@ -40,13 +38,18 @@ class ImagePanel extends React.Component {
     });
   }
 
-  zoomOnHover(isHovered) {
-    const { images, currentImageIndex } = this.state;
-    if (isHovered) {
-      return <img className="zoomedImage" src={images[currentImageIndex]}></img>
-    } else {
-      return <img src={images[currentImageIndex]}></img>
+  zoomOnHover() {
+    const { images, currentImageIndex, hovered } = this.state;
+    if (hovered) {
+      return (
+        <img
+          className="zoomedImage"
+          src={images[currentImageIndex]}
+          alt="zoomedImage"
+        />
+      );
     }
+    return <img src={images[currentImageIndex]} alt="img" />;
   }
 
   likeOrUnlike() {
@@ -79,6 +82,7 @@ class ImagePanel extends React.Component {
         </span>
       );
     }
+    return null;
   }
 
   forSaleByOwnerOrNot() {
@@ -90,23 +94,31 @@ class ImagePanel extends React.Component {
         </span>
       );
     }
+    return null;
   }
 
   render() {
-
-    const { hovered } = this.state;
     return (
       <div className="imagePanel">
         <div className="imagePanelBox">
-          <div className="imagePanelContainer" onClick={() => this.handleImageClick()} onMouseEnter={() => this.handleMouseHover()} onMouseLeave={() => this.handleMouseHover()}>
+          <div
+            className="imagePanelContainer"
+            onClick={() => this.handleImageClick()}
+            onMouseEnter={() => this.handleMouseHover()}
+            onMouseLeave={() => this.handleMouseHover()}
+          >
             <div>
               <picture>
-                {this.zoomOnHover(hovered)}
+                {this.zoomOnHover()}
               </picture>
             </div>
           </div>
           <div className="likeHomeContainer">
-            {<FontAwesomeIcon onClick={() => this.likeOrUnlike()} className={this.fillOrUnfill()} icon={faHeart} />}
+            <FontAwesomeIcon
+              onClick={() => this.likeOrUnlike()}
+              className={this.fillOrUnfill()}
+              icon={faHeart}
+            />
           </div>
           <div className="propertyTagsContainer">
             {this.newOrNot()}

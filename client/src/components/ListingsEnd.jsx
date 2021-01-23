@@ -7,17 +7,32 @@ class ListingsEnd extends React.Component {
     super(props);
     this.state = {
       //  initial state
-
+      buttonMessage: 'Take a look',
+      clicked: false,
     };
+    // bind handlers
     this.handleClick = this.handleClick.bind(this);
   }
 
+  // handleClick
   handleClick() {
-    // handle take a look button click
+    const { clicked } = this.state;
+    if (!clicked) {
+      this.setState({
+        buttonMessage: 'Took a look',
+        clicked: true,
+      });
+    } else {
+      this.setState({
+        buttonMessage: 'Take a look',
+        clicked: false,
+      });
+    }
   }
 
   render() {
-    const { city } = this.props
+    const { city } = this.props;
+    const { buttonMessage } = this.state;
 
     return (
       <li className="listingCard">
@@ -28,7 +43,7 @@ class ListingsEnd extends React.Component {
             <div className="cityName">{city}</div>
           </div>
           <div className="buttonContainer">
-            <button className="takeALookButton">Take a look</button>
+            <button className="takeALookButton" onClick={() => this.handleClick()} type="button">{buttonMessage}</button>
           </div>
         </div>
       </li>
