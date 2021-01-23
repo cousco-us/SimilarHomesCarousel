@@ -29,6 +29,7 @@ for (let i = 0; i < 100; i += 1) {
     bedrooms: (generateRandomNumber(6) + 1),
     bathrooms: (generateRandomNumber(6) + 1),
     addressLineOne: faker.address.streetAddress(),
+    neighborhood: faker.name.lastName(),
     city: faker.address.city(),
     state: faker.address.stateAbbr(),
     agency: faker.company.companyName(),

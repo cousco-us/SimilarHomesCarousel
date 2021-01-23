@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBed, faSink, faRulerCombined, faLongArrowAltUp, faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
+import { faBed, faSink, faRulerCombined } from '@fortawesome/free-solid-svg-icons';
 
 const determinePriceChangeArrow = (priceChange) => {
   if (priceChange === 'noChanges') {
@@ -32,7 +32,7 @@ const agencyOrNot = (forSaleByOwner, agency) => {
 
 const InfoPanel = ({ listing }) => {
   const {
-    price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, city, state, agency, forSaleByOwner
+    price, recentPriceChange, bedrooms, bathrooms, size, addressLineOne, neighborhood, city, state, agency, forSaleByOwner
   } = listing;
   return (
     <div className="infoPanel">
@@ -52,7 +52,7 @@ const InfoPanel = ({ listing }) => {
             <div className="houseSpec"><FontAwesomeIcon className="infoPanelIcon" icon={faRulerCombined} /> {size} sqft</div>
           </div>
           <div className="streetAddressContainer">{addressLineOne}</div>
-          <div className="cityAddressContainer">{city}, {state}</div>
+          <div className="cityAddressContainer">{neighborhood}, {city}, {state}</div>
         </div>
       </div>
       {agencyOrNot(forSaleByOwner, agency)}

@@ -10,6 +10,7 @@ const listingSchema = new mongoose.Schema({
   bedrooms: Number,
   bathrooms: Number,
   addressLineOne: String,
+  neighborhood: String,
   city: String,
   state: String,
   agency: String,

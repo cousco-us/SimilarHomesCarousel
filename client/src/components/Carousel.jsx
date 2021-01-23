@@ -60,20 +60,17 @@ class Carousel extends React.Component {
     const { view } = this.state;
     const numberOfListings = 15;
     if (view > (Math.floor((numberOfListings + 1) / 4.2))) {
-      console.log("hereOver", (((numberOfListings + 1) - 4) * 240) / 912);
-      return (((numberOfListings + 1) - 4) * 240) / 912;
-    } else if (view < 0) {
-      console.log("hereunder0", 0);
+      return (((numberOfListings + 1) - 4.063) * 240) / 912;
+    } if (view < 0) {
       return 0;
-    } else if (view < Math.floor((numberOfListings + 1) / 4)) {
-      console.log("hereMiddle", view, "lastview", ((((numberOfListings + 1) - 4) * 240) / 912), "listings.length-1", (numberOfListings + 1));
+    } if (view < Math.floor((numberOfListings + 1) / 4)) {
       return view;
     }
+    return view;
   }
 
   render() {
     const { listings, like, unlike, city } = this.props;
-    const { view } = this.state;
     const fifteenListings = listings.slice(0, 15);
     const findView = (v) => 912 * v;
     const gridStyle = {
