@@ -77,7 +77,7 @@ class ImagePanel extends React.Component {
     const { isNewListing, forSaleByOwner } = this.state;
     if (isNewListing && !forSaleByOwner) {
       return (
-        <span className="outerNewSpan">
+        <span className="outerPropertyTagSpan">
           <span className="newSpan">NEW</span>
         </span>
       );
@@ -89,7 +89,7 @@ class ImagePanel extends React.Component {
     const { forSaleByOwner } = this.state;
     if (forSaleByOwner) {
       return (
-        <span className="outerForSaleByOwnerSpan">
+        <span className="outerPropertyTagSpan">
           <span className="forSaleByOwnerSpan">FOR SALE BY OWNER</span>
         </span>
       );
