@@ -65,7 +65,7 @@ class Carousel extends React.Component {
 
   stopCarouselFromGoingOver(numberOfListings) {
     const { view } = this.state;
-    if (view > (Math.floor((numberOfListings + 1) / 4.2))) {
+    if (view > (Math.floor((numberOfListings + 1) / 4.063))) {
       return (((numberOfListings + 1) - 4.063) * 240) / 912;
     } if (view < 0) {
       return 0;

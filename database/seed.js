@@ -9,12 +9,13 @@ const generateRandomNumber = (max) => Math.floor(Math.random() * Math.floor(max)
 
 const generatePriceChange = () => ['noChanges', 'raised', 'lowered'][generateRandomNumber(3)];
 
-const numberWithCommas = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+const numberWithCommas = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const chooseRandomImage = () => truliaImageUrls[generateRandomNumber(truliaImageUrls.length)];
 
 const generateRandomLengthPhotoArray = () => {
   const photoArray = [];
+
   for (let i = 0; i < (generateRandomNumber(10) + 8); i += 1) {
     photoArray.push(chooseRandomImage());
   }
