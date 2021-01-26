@@ -7,11 +7,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      headline: 'Similar Homes You May Like',
       listings: [],
       city: null,
     };
-    this.getListings = this.getListings.bind(this);
-    this.likeListing = this.likeListing.bind(this);
+    // this.getListings = this.getListings.bind(this);
   }
 
   componentDidMount() {
@@ -30,7 +30,6 @@ class App extends React.Component {
         });
         this.render();
       },
-      // eslint-disable-next-line no-console
       error: console.log,
     });
   }
@@ -65,8 +64,13 @@ class App extends React.Component {
     const { headline, listings, city } = this.state;
     return (
       <div>
-        <div className="headline">Similar Homes You May Like</div>
-        <Carousel city={city} like={this.likeListing} unlike={this.unlikeListing} listings={listings} />
+        <div className="headline">{headline}</div>
+        <Carousel
+          city={city}
+          like={this.likeListing}
+          unlike={this.unlikeListing}
+          listings={listings}
+        />
       </div>
     );
   }

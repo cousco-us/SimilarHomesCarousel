@@ -9,12 +9,13 @@ const generateRandomNumber = (max) => Math.floor(Math.random() * Math.floor(max)
 
 const generatePriceChange = () => ['noChanges', 'raised', 'lowered'][generateRandomNumber(3)];
 
-const numberWithCommas = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+const numberWithCommas = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const chooseRandomImage = () => truliaImageUrls[generateRandomNumber(truliaImageUrls.length)];
 
 const generateRandomLengthPhotoArray = () => {
   const photoArray = [];
+
   for (let i = 0; i < (generateRandomNumber(10) + 8); i += 1) {
     photoArray.push(chooseRandomImage());
   }
@@ -24,11 +25,12 @@ const generateRandomLengthPhotoArray = () => {
 for (let i = 0; i < 100; i += 1) {
   sampleListings.push({
     images: generateRandomLengthPhotoArray(),
-    price: numberWithCommas(generateRandomNumber(4000000) + 500000),
+    price: numberWithCommas((generateRandomNumber(4000) + 800) * 1000),
     size: numberWithCommas(generateRandomNumber(2300) + 700),
     bedrooms: (generateRandomNumber(6) + 1),
     bathrooms: (generateRandomNumber(6) + 1),
     addressLineOne: faker.address.streetAddress(),
+    neighborhood: faker.name.lastName(),
     city: faker.address.city(),
     state: faker.address.stateAbbr(),
     agency: faker.company.companyName(),

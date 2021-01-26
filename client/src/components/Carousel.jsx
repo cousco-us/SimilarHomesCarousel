@@ -1,10 +1,11 @@
 import React from 'react';
-import Listing from './Listing.jsx';
-import ListingsEnd from './ListingsEnd.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+// eslint-disable-next-line import/extensions
+import Listing from './Listing.jsx';
+// eslint-disable-next-line import/extensions
+import ListingsEnd from './ListingsEnd.jsx';
 
-// eslint-disable-next-line arrow-body-style
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
@@ -13,75 +14,93 @@ class Carousel extends React.Component {
     };
     this.nextButtonClick = this.nextButtonClick.bind(this);
     this.previousButtonClick = this.previousButtonClick.bind(this);
+    this.stopCarouselFromGoingOver = this.stopCarouselFromGoingOver.bind(this);
   }
 
-  nextButtonClick() {
-    const { view } = this.state;
+  nextButtonClick(view) {
     this.setState({ view: (view + 1) });
   }
 
-  previousButtonClick() {
-    const { view } = this.state;
+  previousButtonClick(view) {
     this.setState({ view: (view - 1) });
   }
 
-  nextButtonOrNot() {
-    const { view } = this.state;
-
-  }
-
-  previousButtonOrNot() {
-    const { view } = this.state;
-    if (view !== 0) {
+  previousButtonOrNot(view) {
+    if (view > 0) {
       return (
         <div className="previousButtonContainer">
-          <button onClick={() => this.previousButtonClick()} className="carouselButtons">
+          <button
+            className="carouselButtons"
+            type="button"
+            onClick={() => this.previousButtonClick(view)}
+          >
             <div className="buttonIcon">
               <FontAwesomeIcon icon={faChevronLeft} />
             </div>
           </button>
         </div>
-      )
+      );
     }
+    return null;
   }
 
-  nextButtonOrNot() {
-    const { view } = this.state;
+  nextButtonOrNot(view) {
     if (view < 4) {
       return (
         <div className="nextButtonContainer">
-          <button onClick={() => this.nextButtonClick()} className="carouselButtons">
+          <button
+            className="carouselButtons"
+            type="button"
+            onClick={() => this.nextButtonClick(view)}
+          >
             <div className="buttonIcon">
               <FontAwesomeIcon icon={faChevronRight} />
             </div>
           </button>
         </div>
-      )
+      );
     }
+    return null;
+  }
+
+  stopCarouselFromGoingOver(numberOfListings) {
+    const { view } = this.state;
+    if (view > (Math.floor((numberOfListings + 1) / 4.063))) {
+      return (((numberOfListings + 1) - 4.063) * 240) / 912;
+    } if (view < 0) {
+      return 0;
+    }
+    return view;
   }
 
   render() {
+    // eslint-disable-next-line react/prop-types
     const { listings, like, unlike, city } = this.props;
     const { view } = this.state;
-    const fifteenListings = listings.slice(0, 15);
-    const findView = (v) => 912 * v;
-    const gridStyle = {
-      transform: `translateX(-${findView(view)}px)`,
+    const chosenListings = listings.slice(0, 15);
+    const translateView = {
+      transform: `translateX(-${(this.stopCarouselFromGoingOver(chosenListings.length)) * 912}px)`,
     };
 
     return (
       <div className="carousel">
         <div className="carouselContainer">
           <div className="carouselWindow">
-              <ul className="carouselList" style={gridStyle}>
-                {
-                // eslint-disable-next-line max-len
-                  fifteenListings.map((listing) => <Listing key={listing._id} like={like} unlike={unlike} listing={listing} />)
-                }
-                <ListingsEnd city={city} />
-              </ul>
-              {this.previousButtonOrNot()}
-              {this.nextButtonOrNot()}
+            <ul className="carouselList" style={translateView}>
+              {
+                chosenListings.map((listing) => (
+                  <Listing
+                    listing={listing}
+                    like={like}
+                    unlike={unlike}
+                    key={listing._id}
+                  />
+                ))
+              }
+              <ListingsEnd city={city} />
+            </ul>
+            {this.previousButtonOrNot(view)}
+            {this.nextButtonOrNot(view)}
           </div>
         </div>
       </div>
