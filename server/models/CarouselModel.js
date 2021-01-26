@@ -34,8 +34,20 @@ const unlikeListing = (id, callback) => {
     });
 };
 
+const dropListings = (callback) => {
+  Listing.deleteMany({}, (err, data) => {
+    if (err) {
+      console.log('Error deleting');
+    } else {
+      console.log(data);
+      callback(err, data);
+    }
+  });
+};
+
 module.exports = {
   getListings,
   likeListing,
   unlikeListing,
+  dropListings,
 };
