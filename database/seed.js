@@ -43,7 +43,7 @@ for (let i = 0; i < 100; i += 1) {
 
 const insertSampleListings = () => {
   Listing.create(sampleListings)
-    .then(() => db.disconnect());
+    .then(() => db.close());
 };
 
 insertSampleListings();

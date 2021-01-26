@@ -8,9 +8,12 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "nodemon server/index.js",
+    "start-nodemon": "nodemon server/index.js",
+    "start": "node server/index.js",
     "seed-database": "node database/seed.js",
-    "test": "jest --coverage"
+    "seed": "node database/seed.js",
+    "test": "jest --coverage",
+    "build": "webpack"
   },
   "author": "AnimalFace",
   "license": "",
