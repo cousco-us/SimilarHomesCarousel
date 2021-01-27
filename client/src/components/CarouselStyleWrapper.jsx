@@ -5,7 +5,7 @@ const CarouselStyleWrapper = styled.div`
     display: block;
     max-width: 960px;
     margin: 30px auto;
-    padding: 0px;
+    padding: 16px;
     font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
     color: rgb(59, 65, 68);
     background-color: rgb(255, 255, 255);
