@@ -23,7 +23,8 @@ const likeListing = (request, response) => {
 };
 
 const unlikeListing = (request, response) => {
-  CarouselModel.unlikeListing(request, (err, data) => {
+  const { id } = request.params;
+  CarouselModel.unlikeListing(id, (err, data) => {
     if (err) {
       response.status(400).send(err);
     } else {
