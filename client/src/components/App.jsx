@@ -2,7 +2,7 @@ import React from 'react';
 import { ajax } from 'jquery';
 // eslint-disable-next-line import/extensions
 import Carousel from './Carousel.jsx';
-import GlobalStyles from './GlobalStyles.jsx';
+import CarouselWrapper from './GlobalStyles.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -64,8 +64,7 @@ class App extends React.Component {
   render() {
     const { headline, listings, city } = this.state;
     return (
-      <div>
-        <GlobalStyles />
+      <CarouselWrapper>
         <div className="headline">{headline}</div>
         <Carousel
           city={city}
@@ -73,7 +72,8 @@ class App extends React.Component {
           unlike={this.unlikeListing}
           listings={listings}
         />
-      </div>
+      </CarouselWrapper>
+
     );
   }
 }
