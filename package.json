@@ -50,8 +50,8 @@
     "jquery": "^3.5.1",
     "mongoose": "^5.11.11",
     "nodemon": "^2.0.6",
-    "react": "^15.7.0",
-    "react-dom": "^15.7.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "styled-components": "5.2.1"
   }
 }
