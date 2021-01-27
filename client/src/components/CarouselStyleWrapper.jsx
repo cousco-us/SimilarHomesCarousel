@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 const CarouselStyleWrapper = styled.div`
-
-    margin: 0px;
+    height: 325px;
+    display: block;
+    max-width: 952px;
+    margin: 30px auto;
     padding: 0px;
     font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
     color: rgb(59, 65, 68);
