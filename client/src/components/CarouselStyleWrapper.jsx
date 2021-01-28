@@ -313,7 +313,7 @@ const CarouselStyleWrapper = styled.div`
     height: 30;
     font-size: 23px;
     overflow: hidden;
-    color: rgb(255, 94, 63);
+    color: rgb(255, 94, 63) !important;
     stroke-width: 55px;
     stroke: rgb(255, 94, 63);
     text-align: center;
@@ -429,7 +429,7 @@ const CarouselStyleWrapper = styled.div`
 
 
   .infoPanelIcon {
-    color: rgb(134, 144, 153);
+    /* color: rgb(134, 144, 153); */
     font-size: 85%;
   }
 
