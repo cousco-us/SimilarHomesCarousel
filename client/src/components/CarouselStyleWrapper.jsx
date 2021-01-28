@@ -429,7 +429,7 @@ const CarouselStyleWrapper = styled.div`
 
 
   .infoPanelIcon {
-    /* color: rgb(134, 144, 153); */
+    color: rgb(134, 144, 153);
     font-size: 85%;
   }
 
