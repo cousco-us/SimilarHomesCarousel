@@ -1,6 +1,6 @@
-# Project Name
+# Similar Homes Carousel
 
-> Project description
+> Application to horizontally display slideable lists of homes related to the one currently shown on the listing detail page.
 
 ## Related Projects
 
