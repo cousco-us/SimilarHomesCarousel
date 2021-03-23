@@ -4,29 +4,41 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/cousco-us/AffordabilityCalculator
+  - https://github.com/cousco-us/Photos
+
 
 ## Table of Contents
 
+1. [Product_Details](#product-details)
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
-1. [Development](#development)
+
+## **Product Details**
+<a name="product-details"/>
 
 ## Usage
+<a name="usage"/>
+From within the root directory:
 
-> Some usage instructions
+Install dependencies:
+npm install
+
+Build bundle:
+npm run build
+
+Seed database:
+npm run seed
+
+Start server:
+npm start-nodemon
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
-- etc
 
-## Development
+- Node (6.13.0 or later)
+- Mongo (4.4.3 or later)
 
 ### Installing Dependencies
 
